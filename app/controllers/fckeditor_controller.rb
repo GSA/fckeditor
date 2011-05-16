@@ -140,7 +140,7 @@ class FckeditorController < ActionController::Base
   def check_file(file)
     # check that the file is a tempfile object
     # RAILS_DEFAULT_LOGGER.info "CLASS OF UPLOAD OBJECT: #{file.class}"
-    unless "#{file.class}" == "Tempfile" || "StringIO"
+    unless file.class == ("Tempfile" || "StringIO")
       @errorNumber = 403
       throw Exception.new
     end
